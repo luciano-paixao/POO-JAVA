@@ -1,4 +1,4 @@
-package HerancaPolimofismo.TratamentoDeErro;
+package TratamentoDeErro;
 
 public class Contador {
     private static Integer num;

@@ -1,4 +1,4 @@
-package HerancaPolimofismo.TratamentoDeErro;
+package TratamentoDeErro;
 
 public class ContaNaoExistenteExcption extends Exception {
     private Integer IdentificadorInexistente;

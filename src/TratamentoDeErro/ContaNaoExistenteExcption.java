@@ -1,16 +1,16 @@
 package TratamentoDeErro;
 
 public class ContaNaoExistenteExcption extends Exception {
-    private Integer IdentificadorInexistente;
+    private String conatoNaoExistente;
 
-    ContaNaoExistenteExcption(int IdenIne){
+    ContaNaoExistenteExcption(String nome){
         super();
-        IdentificadorInexistente = IdenIne;
+        conatoNaoExistente = nome;
     }
 
     @Override
     public String toString() {
         return "Este contato não existe: " +
-               IdentificadorInexistente;
+                conatoNaoExistente;
     }
 }

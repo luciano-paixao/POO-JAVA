@@ -13,37 +13,22 @@ public class Agenda {
         }else{
             fichario [con.getIdentificdor()] = con;
         }
-
-
     }
 
-    public void consultar(int iden){
-        try {
-            for (int i = 0; i < fichario.length; i++){
+    public void consultar(String nome) throws ContaNaoExistenteExcption{
 
-                if(iden > fichario.length){
-                    throw new ContaNaoExistenteExcption(iden);
-                }
+        boolean naoEncrontado = false;
 
-                if(fichario[i].getIdentificdor() == iden){
-                    System.out.println(fichario[i].getNome() + "/" + fichario[i].getTelefone());
-
-//                    if (contatos != null) {
-//                        for (RelacionamentoEntreClasses.exemplo1.Contato c : contatos) {
-//                            if((c.getNome().equals(nome))){
-//                                info += c.obterInfo() + "\n";
-//                            }
-//                        }
-//                    }
-
-                }
+        for (int i = 0; i <= fichario.length; i++){
+            if (nome.equals(fichario[i].getNome())){
+                System.out.println(fichario[i]);
+                naoEncrontado = false;
+            }else {
+                naoEncrontado = true;
             }
         }
-        catch (ContaNaoExistenteExcption ex){
-            System.out.println(ex);
+        if (naoEncrontado){
+            throw new ContaNaoExistenteExcption(nome);
         }
-
     }
-
-
 }

@@ -11,7 +11,7 @@ public class Agenda {
         if (con.getIdentificdor() > fichario.length){
             throw new AgendaCheiaExcption(con);
         }else{
-            fichario [con.getIdentificdor()] = con;
+            fichario [con.getIdentificdor() - 1] = con;
         }
     }
 
@@ -22,7 +22,7 @@ public class Agenda {
         for (int i = 0; i <= fichario.length; i++){
             if (nome.equals(fichario[i].getNome())){
                 System.out.println(fichario[i]);
-                naoEncrontado = false;
+                break;
             }else {
                 naoEncrontado = true;
             }
@@ -30,5 +30,9 @@ public class Agenda {
         if (naoEncrontado){
             throw new ContaNaoExistenteExcption(nome);
         }
+    }
+
+    public Contato[] getFichario() {
+        return fichario;
     }
 }

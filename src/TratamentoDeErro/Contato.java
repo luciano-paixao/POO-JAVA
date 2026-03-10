@@ -4,10 +4,11 @@ public class Contato {
     private String nome;
     private String telefone;
     private Integer Identificdor;
-    private Contador contador;
+    private static Integer contador = 0;
 
     public Contato(String nome, String telefone) {
-        Identificdor = this.contador.atribuir();
+        contador++;
+        Identificdor = this.contador;
         this.nome = nome;
         this.telefone = telefone;
     }

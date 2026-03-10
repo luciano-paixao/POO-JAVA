@@ -10,7 +10,7 @@ public class AgendaCheiaExcption extends Exception {
 
     @Override
     public String toString() {
-        return "Não como adicionar o contato " + contato.getNome() +
-                " pois a agente está cheia";
+        return "Não há como adicionar o contato " + contato.getNome() +
+                " pois a agenda está cheia";
     }
 }

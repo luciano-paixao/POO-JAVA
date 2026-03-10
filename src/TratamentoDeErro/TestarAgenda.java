@@ -5,25 +5,38 @@ import java.util.Scanner;
 public class TestarAgenda {
 
     public static void main(String[] args) {
+
+        Agenda agenda = new Agenda();
+        menu(agenda);
+    }
+
+    public static void menu(Agenda agenda){
+
         Scanner leitor = new Scanner(System.in);
         System.out.println("Bem vindo a Agenda");
         System.out.println("Digite 1 para consultar um contato ou 2 para adicionar");
+        System.out.println("Para sair do Progama digite 3");
         int valor = leitor.nextInt();
 
-        Agenda agenda = new Agenda();
-
         if(valor == 1){
-
+            consultar(agenda);
+            menu(agenda);
         }else if (valor == 2) {
             adicionar(agenda);
-        }else {
+            menu(agenda);
+        }else if (valor == 3){
+            Contato con = null;
+            con.getIdentificdor();
+            System.exit(0);
+        } else {
             System.out.println("Valor inserido inválido");
+            menu(agenda);
         }
     }
 
     public static void adicionar(Agenda agen){
         Scanner leitor = new Scanner(System.in);
-        System.out.println("Digite o nome do conatato");
+        System.out.println("Digite o nome do contato");
         String nome = leitor.next();
         System.out.println("Digite o numero do contato");
         String telefone = leitor.next();
@@ -32,7 +45,7 @@ public class TestarAgenda {
         try {
             agen.adicionar(con);
         } catch (AgendaCheiaExcption e) {
-            throw new RuntimeException(e);
+            System.out.println(e);
         }
     }
 

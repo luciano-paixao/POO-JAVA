@@ -19,12 +19,10 @@ public class Agenda {
 
         boolean naoEncrontado = false;
 
-        for (int i = 0; i <= fichario.length; i++){
+        for (int i = 0; i < fichario.length; i++){
             if (nome.equals(fichario[i].getNome())){
                 System.out.println(fichario[i]);
                 break;
-            }else {
-                naoEncrontado = true;
             }
         }
         if (naoEncrontado){

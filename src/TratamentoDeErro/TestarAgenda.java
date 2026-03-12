@@ -1,5 +1,6 @@
 package TratamentoDeErro;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TestarAgenda {
@@ -16,20 +17,27 @@ public class TestarAgenda {
         System.out.println("Bem vindo a Agenda");
         System.out.println("Digite 1 para consultar um contato ou 2 para adicionar");
         System.out.println("Para sair do Progama digite 3");
-        int valor = leitor.nextInt();
 
-        if(valor == 1){
-            consultar(agenda);
-            menu(agenda);
-        }else if (valor == 2) {
-            adicionar(agenda);
-            menu(agenda);
-        }else if (valor == 3){
-            Contato con = null;
-            con.getIdentificdor();
-            System.exit(0);
-        } else {
-            System.out.println("Valor inserido inválido");
+        try{
+            int valor = leitor.nextInt();
+            if(valor == 1){
+                consultar(agenda);
+                menu(agenda);
+            }else if (valor == 2) {
+                adicionar(agenda);
+                menu(agenda);
+            }else if (valor == 3){
+                Contato con = null;
+                con.getIdentificdor();
+                System.exit(0);
+            } else {
+                System.out.println("Valor inserido inválido, tente novamente");
+                System.out.println("");
+                menu(agenda);
+            }
+        }catch (InputMismatchException e){
+            System.out.println("Valor inserido inválido, tente novamente");
+            System.out.println("");
             menu(agenda);
         }
     }
@@ -57,7 +65,7 @@ public class TestarAgenda {
         try {
             agen.consultar(nome);
         } catch (ContaNaoExistenteExcption e) {
-            throw new RuntimeException(e);
+            System.out.println(e);
         }
     }
 
